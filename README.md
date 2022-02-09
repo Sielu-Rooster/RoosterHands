@@ -42,7 +42,7 @@ Crimper: https://www.amazon.com/gp/product/B007JLN93S/ref=ppx_yo_dt_b_search_asi
 Kit: https://www.amazon.com/dp/B07TB8QXMC?psc=1&ref=ppx_yo2_dt_b_product_details
 
 ### Hand Tracking Hardware, part 3
-Here we get to my actual contribution.  I designed two components, the button mount that gets glued on to the index finger of a glove, and battery/chip holder that gets glued on the back of the hand and runs the whole operation.
+Here we get to my actual contribution.  I designed two components, [the button mount](https://github.com/Sielu-Rooster/RoosterHands/blob/main/designs/FingerBase%20V3.stl) that gets glued on to the index finger of a glove, and [battery/chip holder](https://github.com/Sielu-Rooster/RoosterHands/blob/main/designs/ChipBase%20AAA%20V2.stl) that gets glued on the back of the hand and runs the whole operation.
 
 ![range of motion](https://github.com/Sielu-Rooster/RoosterHands/blob/main/pictures/PXL_20220209_000744302._exported_stabilized_1644365386516.gif)
 ![buttons](https://github.com/Sielu-Rooster/RoosterHands/blob/main/pictures/PXL_20220209_000836399._exported_stabilized_1644365351093.gif)
@@ -53,9 +53,9 @@ I 3D printed these on a resin printer, then hot-glued them to the back of a pair
 THe gloves are fingerless which is nice for HOTAS controls, but still have a long-enough finger to attach the buttons to.  
 
 ### Hand Tracking Firmware
-And finally, my other contribution.  I've inluded a javascript...script that gets uploaded to the MDBT42Q board and mimicks a bluetooth mouse.  One button each is assigned to left and right click, and then another two buttons are assigned to scroll up and scroll down in order to turn knobs in the cockpit.  Scrolling has acceleration built into it, so the longer the button is held down the faster the 'scroll wheel' turns.  This allows for pretty rapid turning of really slow knobs (like barometric pressure), but also very precise adjustment if the button is only clicked momentarily.  
+And finally, my other contribution.  I've inluded a javascript...[script](https://github.com/Sielu-Rooster/RoosterHands/blob/main/javascript/roosterMouse_v07.js) that gets uploaded to the MDBT42Q board and mimicks a bluetooth mouse.  One button each is assigned to left and right click, and then another two buttons are assigned to scroll up and scroll down in order to turn knobs in the cockpit.  Scrolling has acceleration built into it, so the longer the button is held down the faster the 'scroll wheel' turns.  This allows for pretty rapid turning of really slow knobs (like barometric pressure), but also very precise adjustment if the button is only clicked momentarily.  
 
 To upload the firmware:
 1. Make sure you have bluetooth or go buy a bluetooth adapter.  I had to also install the wifi antenna on my desktop because apparently bluetooth runs over that too.  Then, open www.espruino.com/ide/ in Chrome or Edge (gross), Firefox doesn't like it.  
-2. Hit the 'connect' button in the top-left corner, then copy and paste the script into the right-hand window and hit 'flash'.  It should show a confirmation and then say "waiting on restart".  
+2. Hit the 'connect' button in the top-left corner, then copy and paste the [script](https://github.com/Sielu-Rooster/RoosterHands/blob/main/javascript/roosterMouse_v07.js) into the right-hand window and hit 'flash'.  It should show a confirmation and then say "waiting on restart".  
 3. Power down the module, power it back up and connect it to bluetooth through windows and you should be good to go!  
