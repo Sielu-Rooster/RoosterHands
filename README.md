@@ -50,7 +50,9 @@ These were 3D printed on a resin printer.  A FDM printer may not be able to get 
 ![buttons](https://github.com/Sielu-Rooster/RoosterHands/blob/main/pictures/PXL_20220209_000836399._exported_stabilized_1644365351093.gif)
 ![clearance](https://github.com/Sielu-Rooster/RoosterHands/blob/main/pictures/PXL_20220209_000612267._exported_stabilized_1644365400455.gif)
 
-The two 12MM buttons slot into the two in-line 12mm slots on the button mount, and the 6mms into the front two slots. All four buttons should be wired to a common lead, which I punch through the center 'hole' in the button mount.  The remaining four leads should then go to four additional wires, then all five of those plugged into five pins on the Espruino board.  I used a bit of extra resin to secure everything in place before hot-gluing to the glove.
+The two 12MM buttons slot into the two in-line 12mm slots on the button mount, and the 6mms into the front two slots. All four buttons should be wired to a common lead, which I punch through the center 'hole' in the button mount.  The remaining four leads should then go to four additional wires, then all five of those plugged into five pins on the Espruino board.  I used a bit of extra resin to secure everything in place before hot-gluing to the glove.  My highly professional wiring diagram may help:
+
+![much professional](https://github.com/Sielu-Rooster/RoosterHands/blob/main/pictures/wiringDiagram.png)
 
 For the battery/chip mount, you're going to need some AAA battery terminals.  I designed the spacing and clips in each battery slot for these: https://www.amazon.com/dp/B07V9G87L9?psc=1&ref=ppx_yo2_dt_b_product_details which clip right in with a bit of force.  Then just wire up each battery in series, and pass the leads through the included hole in the mount.  I made the hole a smidge too small, so you may need to drill it out a bit to pass two 1mm leads through.  
 
