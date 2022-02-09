@@ -65,5 +65,5 @@ And finally, my other contribution.  I've inluded a javascript...[script](https:
 
 To upload the firmware:
 1. Make sure you have bluetooth or go buy a bluetooth adapter.  I had to also install the wifi antenna on my desktop because apparently bluetooth runs over that too.  Then, open www.espruino.com/ide/ in Chrome or Edge (gross), Firefox doesn't like it.  
-2. Hit the 'connect' button in the top-left corner, then copy and paste the [script](https://github.com/Sielu-Rooster/RoosterHands/blob/main/javascript/roosterMouse_v07.js) into the right-hand window and hit 'flash'.  It should show a confirmation and then say "waiting on restart".  
+2. Hit the 'connect' button in the top-left corner, then copy and paste the [script](https://github.com/Sielu-Rooster/RoosterHands/blob/main/javascript/roosterMouse_v07.js) into the right-hand window.  Make sure you change the parameters as you need to, but especially be sure to change the pins in the first section to match what you wired up with the buttons! When you're ready, hit 'flash'.  It should show a confirmation and then say "waiting on restart".  
 3. Power down the module, power it back up and connect it to bluetooth through windows and you should be good to go!  
