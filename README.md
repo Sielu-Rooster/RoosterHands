@@ -44,6 +44,10 @@ Kit: https://www.amazon.com/dp/B07TB8QXMC?psc=1&ref=ppx_yo2_dt_b_product_details
 ### Hand Tracking Hardware, part 3
 Here we get to my actual contribution.  I designed two components, the button mount that gets glued on to the index finger of a glove, and battery/chip holder that gets glued on the back of the hand and runs the whole operation.
 
+![range of motion](https://github.com/Sielu-Rooster/RoosterHands/blob/main/pictures/PXL_20220209_000744302._exported_stabilized_1644365386516.gif)
+![buttons](https://github.com/Sielu-Rooster/RoosterHands/blob/main/pictures/PXL_20220209_000836399._exported_stabilized_1644365351093.gif)
+![clearance](https://github.com/Sielu-Rooster/RoosterHands/blob/main/pictures/PXL_20220209_000612267._exported_stabilized_1644365400455.gif)
+
 I 3D printed these on a resin printer, then hot-glued them to the back of a pair of fishing gloves: https://www.amazon.com/dp/B07FNDVLDT?psc=1&ref=ppx_yo2_dt_b_product_details
 
 THe gloves are fingerless which is nice for HOTAS controls, but still have a long-enough finger to attach the buttons to.  
