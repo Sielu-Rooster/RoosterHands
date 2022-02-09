@@ -44,13 +44,19 @@ Kit: https://www.amazon.com/dp/B07TB8QXMC?psc=1&ref=ppx_yo2_dt_b_product_details
 ### Hand Tracking Hardware, part 3
 Here we get to my actual contribution.  I designed two components, [the button mount](https://github.com/Sielu-Rooster/RoosterHands/blob/main/designs/FingerBase%20V3.stl) that gets glued on to the index finger of a glove, and [battery/chip holder](https://github.com/Sielu-Rooster/RoosterHands/blob/main/designs/ChipBase%20AAA%20V2.stl) that gets glued on the back of the hand and runs the whole operation.
 
+These were 3D printed on a resin printer.  A FDM printer may not be able to get the resolution for the wire lead holes, but I haven't done FDM printing in a long time.
+
 ![range of motion](https://github.com/Sielu-Rooster/RoosterHands/blob/main/pictures/PXL_20220209_000744302._exported_stabilized_1644365386516.gif)
 ![buttons](https://github.com/Sielu-Rooster/RoosterHands/blob/main/pictures/PXL_20220209_000836399._exported_stabilized_1644365351093.gif)
 ![clearance](https://github.com/Sielu-Rooster/RoosterHands/blob/main/pictures/PXL_20220209_000612267._exported_stabilized_1644365400455.gif)
 
-I 3D printed these on a resin printer, then hot-glued them to the back of a pair of fishing gloves: https://www.amazon.com/dp/B07FNDVLDT?psc=1&ref=ppx_yo2_dt_b_product_details
+The two 12MM buttons slot into the two in-line 12mm slots on the button mount, and the 6mms into the front two slots. All four buttons should be wired to a common lead, which I punch through the center 'hole' in the button mount.  The remaining four leads should then go to four additional wires, then all five of those plugged into five pins on the Espruino board.  I used a bit of extra resin to secure everything in place before hot-gluing to the glove.
 
-THe gloves are fingerless which is nice for HOTAS controls, but still have a long-enough finger to attach the buttons to.  
+For the battery/chip mount, you're going to need some AAA battery terminals.  I designed the spacing and clips in each battery slot for these: https://www.amazon.com/dp/B07V9G87L9?psc=1&ref=ppx_yo2_dt_b_product_details which clip right in with a bit of force.  Then just wire up each battery in series, and pass the leads through the included hole in the mount.  I made the hole a smidge too small, so you may need to drill it out a bit to pass two 1mm leads through.  
+
+The battery mount also has a slot for press-fitting the chip into, although I had to sand down one side slightly to get one of my boards to fit.
+
+The gloves are fingerless which is nice for HOTAS controls, but still have a long-enough finger to attach the buttons to.  
 
 ### Hand Tracking Firmware
 And finally, my other contribution.  I've inluded a javascript...[script](https://github.com/Sielu-Rooster/RoosterHands/blob/main/javascript/roosterMouse_v07.js) that gets uploaded to the MDBT42Q board and mimicks a bluetooth mouse.  One button each is assigned to left and right click, and then another two buttons are assigned to scroll up and scroll down in order to turn knobs in the cockpit.  Scrolling has acceleration built into it, so the longer the button is held down the faster the 'scroll wheel' turns.  This allows for pretty rapid turning of really slow knobs (like barometric pressure), but also very precise adjustment if the button is only clicked momentarily.  
