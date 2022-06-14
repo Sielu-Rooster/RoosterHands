@@ -54,6 +54,15 @@ The two 12MM buttons slot into the two in-line 12mm slots on the button mount, a
 
 ![much professional](https://github.com/Sielu-Rooster/RoosterHands/blob/main/pictures/wiringDiagram.png)
 
+Make a note of which pins you're connecting to on the Espruino board.  The firmware is configured with the buttons in a "pull-down" configuration.  Voltage is supplied to one side of the button and pulled down by the connected pin when the circuit is closed. By default, the firmware (below) assumes you're using the following pins:
+- m1 on pin D18
+- m2 on pin D20
+- sUp on pin D22
+- sDn on pin D17
+- outputPin (voltage supply) on pin D19
+
+This array makes for a clean five-wire ribbon cable with the outputPin in the middle of the wire bundle.  You can of course change this around to suit your setup, or swap the outputPin for the V+ pin on the board, just make sure to make the appropriate changes in the firmware before flashing!
+
 For the battery/chip mount, you're going to need some AAA battery terminals.  I designed the spacing and clips in each battery slot for these: https://www.amazon.com/dp/B07V9G87L9?psc=1&ref=ppx_yo2_dt_b_product_details which clip right in with a bit of force.  Then just wire up each battery in series, and pass the leads through the included hole in the mount.  I made the hole a smidge too small, so you may need to drill it out a bit to pass two 1mm leads through.  
 
 The battery mount also has a slot for press-fitting the chip into, although I had to sand down one side slightly to get one of my boards to fit.
