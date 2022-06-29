@@ -3,7 +3,9 @@
 This library is intended to provide tools and code for DCS pilots to build their own low(ish)-profile, modular, wireless button sets to extend immersion with virtual cockpits.  Many current leap motion users, myself included, are fairly disappointed with DCS's current leap integration, and feel like it's a bit finicky and unreliable.  The best solution we've found is PointCTRL:
 https://pointctrl.com/
 
-But having sat on the waitlist for about a year with no end in sight, some of us have started taking matters into our own hands.  If you want a more professional project and don't mind waiting, get on the PointCTRL waitlist.  If you want to get your hands dirty, and don't mind kludging something together now... read on!
+But having sat on the waitlist for about a year, some of us have started taking matters into our own hands.  If you want a more professional project and don't mind waiting, get on the PointCTRL waitlist.  If you want to get your hands dirty, and don't mind kludging something together now... read on!
+
+If you want to see Roosterhands in action, I recorded a full AH-64D mission... the first two minutes are the good pointy stuff, the rest is just me flying poorly: https://www.youtube.com/watch?v=0kCUDKgZT-g
 
 ## Hand Tracking
 This library is dependant on other hardware and software to track your hands and translate that data into a cursor that DCS can interpret.  All I'm providing here is a method to actually actuate a mouse buttons once the cursor is where you need it to be.  Getting the cursor into place requires some hand tracking:
