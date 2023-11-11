@@ -1,9 +1,9 @@
 # RoosterHands
 
-This library is intended to provide tools and code for DCS pilots to build their own low(ish)-profile, modular, wireless button sets to extend immersion with virtual cockpits.  Many current leap motion users, myself included, are fairly disappointed with DCS's current leap integration, and feel like it's a bit finicky and unreliable.  The best solution we've found is PointCTRL:
+This library is intended to provide tools and code for Virtual pilots to build their own low(ish)-profile, modular, wireless button sets to extend immersion with virtual cockpits.  Many current leap motion users, myself included, are fairly disappointed with DCS and/or OpenXR's current leap integration, and feel like it's a bit finicky and unreliable.  The best solution we've found is PointCTRL:
 https://pointctrl.com/
 
-But having sat on the waitlist for about a year, some of us have started taking matters into our own hands.  If you want a more professional project and don't mind waiting, get on the PointCTRL waitlist.  If you want to get your hands dirty, and don't mind kludging something together now... read on!
+But after sitting on the waitlist for about a year, some of us started taking matters into our own hands.  If you want a more professional project and don't mind waiting, get on the PointCTRL waitlist.  If you want to get your hands dirty, and don't mind kludging something together now... read on!
 
 If you want to see Roosterhands in action, I recorded a full AH-64D mission... the first two minutes are the good pointy stuff, the rest is just me flying poorly: https://www.youtube.com/watch?v=0kCUDKgZT-g
 
@@ -18,32 +18,34 @@ You'll need some way to attach the leap device to your VR headset.  I 3D printed
 https://www.thingiverse.com/ultraleap/designs
 
 ### Hand Tracking Software, part 1
-Ultraleap's Gemini software package is very robust and provides reliable-enough tracking to emulate mouse input.  You'll need to create a developer account on Ultraleap to download, but this is free.
-https://developer.leapmotion.com/tracking-software-download
+Ultraleap's Gemini software package is very robust and provides reliable-enough tracking to emulate mouse input. https://leap2.ultraleap.com/gemini-downloads/
 
-### Hand Tracking Software, part 2
-The real secret sauce here is glenmurphy/Frenzon's 'Fingers' app, which translates the Leap Motion hand tracking into a single mouse cursor. It's lightweight, sits on top of Ultraleaps' gemini software, and just 'works'.  Make sure you have bluetooth enabled, even though we won't be using the finger's button input... the software crashes without it.
+### Hand Tracking Software for DCS/Xplane
+Since both DCS and Xplane use a fairly simple VR cursor, getting your hands to generate a cursor in VR is as simple as using glenmurphy/Frenzon's 'Fingers' app, which translates the Leap Motion hand tracking into a single mouse cursor. It's lightweight, sits on top of Ultraleaps' gemini software, and just 'works'.  
 https://github.com/glenmurphy/fingers
+
+### Hand Tracking Software for MSFS
+Since MSFS 2020 uses a...unique...vr cursor implementation, the 'fingers' app unfortunately doesn't work to get our hands into MSFS.  Instead, there's a few more steps using the OpenXR toolkit.  I'll create a seperate guide on that.
 
 ## Mouse Button Input
 The next piece of the puzzle is getting the actual clickity bit of the mouse emulation.  One lightweight option is to bind mouse right/left click to your HOTAS within DCS.  This allows you to use one hand to move the cursor through Fingers and then 'click' with your other hand on the controls.  It works, but it's not very immersive.  
 
 Frenzon's working on some VERY low-profile rings with integrated batteries, based on the Espruino MDBT42Q bare module.  Since that code and design haven't been released yet, I started working on a much less low-profile version based on the MDBT42Q breakout and some AAA batteries.  It's chunkier, but more approachable.  
 
-### Hand Tracking Hardware, part 1
+### Hand Clicking Hardware, part 1
 First up, the main piece of the hardware is the microcontroller.  Espruino boards are designed to be lightweight and VERY efficient, and program easily over bluetooth using javascript.  I didn't know JS at all going into this, and managed to bungle together a mouse script out of it.  At the end of the day I actually like it better than Arduino, and based on my rough math the AAA batteries I'm feeding this thing should last about a year with routine use.
 https://www.espruino.com/MDBT42Q
 
 I picked up my actual hardware for adafruit: https://www.adafruit.com/product/3876?gclid=Cj0KCQiAxoiQBhCRARIsAPsvo-zQEBPivOWm7WrN4SnVlN8_yXTU7Vnga4baXUxkf6yPqXVuJFA918AaAiGVEALw_wcB
 
-### Hand Tracking Hardware, part 2
+### Hand Clicking Hardware, part 2
 Next, you're gonna need some buttons.  I bought an assortment of clicky momentary buttons off of Amazon (https://www.amazon.com/gp/product/B09HNN1GPM/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1) but only ended up using the 6MM and 12MM basic variants.  You can also find these on Adafruit if you want to one-stop-shop: https://www.adafruit.com/product/1119 and https://www.adafruit.com/product/367
 
 I also had a wire crimper and terminal/header kit lying around, which is useful for making the connections.  
 Crimper: https://www.amazon.com/gp/product/B007JLN93S/ref=ppx_yo_dt_b_search_asin_title?ie=UTF8&psc=1
 Kit: https://www.amazon.com/dp/B07TB8QXMC?psc=1&ref=ppx_yo2_dt_b_product_details
 
-### Hand Tracking Hardware, part 3
+### Hand Clicking Hardware, part 3
 Here we get to my actual contribution.  I designed two components, [the button mount](https://github.com/Sielu-Rooster/RoosterHands/blob/main/designs/FingerBase%20V3.stl) that gets glued on to the index finger of a glove, and [battery/chip holder](https://github.com/Sielu-Rooster/RoosterHands/blob/main/designs/ChipBase%20AAA%20V2.stl) that gets glued on the back of the hand and runs the whole operation.
 
 These were 3D printed on a resin printer.  A FDM printer may not be able to get the resolution for the wire lead holes, but I haven't done FDM printing in a long time.
@@ -71,7 +73,7 @@ The battery mount also has a slot for press-fitting the chip into, although I ha
 
 The gloves are fingerless which is nice for HOTAS controls, but still have a long-enough finger to attach the buttons to.  
 
-### Hand Tracking Firmware
+### Hand Clicking Firmware
 And finally, my other contribution.  I've inluded a javascript...[script](https://github.com/Sielu-Rooster/RoosterHands/blob/main/javascript/roosterMouse_v07.js) that gets uploaded to the MDBT42Q board and mimicks a bluetooth mouse.  One button each is assigned to left and right click, and then another two buttons are assigned to scroll up and scroll down in order to turn knobs in the cockpit.  Scrolling has acceleration built into it, so the longer the button is held down the faster the 'scroll wheel' turns.  This allows for pretty rapid turning of really slow knobs (like barometric pressure), but also very precise adjustment if the button is only clicked momentarily.  
 
 To upload the firmware:
